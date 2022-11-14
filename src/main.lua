@@ -1,6 +1,11 @@
 --> Settings
 local debugger = true
-local version = "0.0.2b"
+local version = "0.1.0a"
+
+--> File System
+local MainFolder = "ASSE"
+local SoundFolder = MainFolder .. "/Sounds"
+local ImageFolder = MainFolder .. "/Images"
 
 --> Cloned Functions for reuse
 local clonefunc = clonefunction
@@ -32,8 +37,6 @@ error = function(...)
     error_c("ASSE: " .. ...)
 end)
 
-
-
 print([[
 
       /$$$$$$   /$$$$$$   /$$$$$$  /$$$$$$$$
@@ -45,4 +48,16 @@ print([[
     | $$  | $$|  $$$$$$/|  $$$$$$/| $$$$$$$$
     |__/  |__/ \______/  \______/ |________/
 
-        Version: ]] .. version .. "\n")
+]])
+
+if not isfolder(MainFolder) then
+    makefolder(MainFolder) print("(FileSystem) Creating '" .. MainFolder .. "'")
+else 
+    print("(FileSystem) Found '" MainFolder .. "'")
+end
+
+if not isfolder(SoundFolder) then
+    makefolder(SoundFolder) print("(FileSystem) Creating '" .. SoundFolder .. "'")
+else 
+    print("(FileSystem) Found '" .. SoundFolder .. "'")
+end
