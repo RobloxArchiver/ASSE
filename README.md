@@ -1,7 +1,5 @@
-# AFTERSHOCK_Toolbox
+# ASSE
 
-AFTERSHOCK Toolbox is a Toolbox for the game Aftershock on Roblox. In the end it is supposed to work as a modification to Aftershock, to allow custom assets to be added and scenarios to be made. This is made purely for fun as a FAN PROJECT.
-
-I do not condone cheating 
+I do not condone cheating in MULTIPLAYER games, I believe even if it's singleplayer and on Roblox, you should be ALLOWED to exploit as it won't affect anyone except yourself.
 
 # In Development ✔
