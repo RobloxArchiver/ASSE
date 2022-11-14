@@ -40,7 +40,8 @@ error = function(...)
     error_c("ASSE: " .. ...)
 end
 
-print([[
+--> Using the cloned print
+print_c([[
 
       /$$$$$$   /$$$$$$   /$$$$$$  /$$$$$$$$
      /$$__  $$ /$$__  $$ /$$__  $$| $$_____/
@@ -51,6 +52,7 @@ print([[
     | $$  | $$|  $$$$$$/|  $$$$$$/| $$$$$$$$
     |__/  |__/ \______/  \______/ |________/
 
+        AFTERSHOCK Script Extender
 ]])
 
 if not isfolder(MainFolder) then
