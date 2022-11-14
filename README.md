@@ -1,6 +1,8 @@
 # ASSE
 
-I do not condone cheating in MULTIPLAYER games, I believe even if it's singleplayer and on Roblox, you should be ALLOWED to exploit as it won't affect anyone except yourself.
+ASSE is meant to extend the game AFTERSHOCK on Roblox. The game is singleplayer so abilities are expanded greatly.
+
+I do not condone cheating in MULTIPLAYER games
 
 # Roadmap
 
