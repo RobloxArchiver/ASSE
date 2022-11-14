@@ -70,7 +70,7 @@ end
 if not isfolder(MainFolder) then
     makefolder(MainFolder) print("(FileSystem) Creating '" .. MainFolder .. "'")
 else 
-    print("(FileSystem) Found '" MainFolder .. "'")
+    print("(FileSystem) Found '" .. MainFolder .. "'")
 end
 
 if not isfolder(SoundFolder) then
