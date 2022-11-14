@@ -55,6 +55,18 @@ print_c([[
         AFTERSHOCK Script Extender
 ]])
 
+if game.PlaceId == 11558029992 then
+    print("Failed to Load")
+    game.Players.LocalPlayer:Kick("Sorry, this is the Multiplayer version.")
+    return
+end
+
+if not game.PlaceId == 11470282325 or not game.PlaceId == 11525845349 then
+    print("Failed to Load")
+    game.Players.LocalPlayer:Kick("Sorry, this game isn't AFTERSHOCK.")
+    return
+end
+
 if not isfolder(MainFolder) then
     makefolder(MainFolder) print("(FileSystem) Creating '" .. MainFolder .. "'")
 else 
