@@ -78,17 +78,3 @@ if not isfolder(SoundFolder) then
 else 
     print("(FileSystem) Found '" .. SoundFolder .. "'")
 end
-
-function EditRadio(SoundId)
-    for i,v in pairs(GetChildren(Workspace)) do
-        if IsA(v, "Model") and v.Name == "Model" then
-            if FindFirstChild(v, "Union") and FindFirstChildWhichIsA(v.Union, "Sound")  then
-                GetChildren(v.Union)[1].SoundId = SoundId
-            end
-        end
-    end
-end
-
-do
-    EditRadio("rbxassetid://142376088") --> Example
-end
