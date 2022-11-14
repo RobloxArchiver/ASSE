@@ -1,2 +1,5 @@
 # AFTERSHOCK_Toolbox
-Toolbox/Personal Development Console for AFTERSHOCK
+
+AFTERSHOCK Toolbox is a Toolbox for the game Aftershock on Roblox.
+
+# In Development ✔
