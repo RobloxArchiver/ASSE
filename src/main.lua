@@ -1,5 +1,5 @@
 --> Settings
-local debugger = true
+local debugger = false
 local version = "0.1.0a"
 
 --> File System
@@ -29,7 +29,7 @@ print = function(...)
     end
 
     print_c("ASSE: " .. ...)
-end)
+end
 
 --> Also replace Error!
 error = function(...)
@@ -38,7 +38,7 @@ error = function(...)
     end
 
     error_c("ASSE: " .. ...)
-end)
+end
 
 print([[
 
