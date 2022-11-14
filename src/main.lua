@@ -8,17 +8,18 @@ local error_c = clonefunc(error)
 
 --> Replace print with our own :cool:
 print = function(...)
-    if debugger == true then
+    if rrkit_sdk and debugger == true then
         console.print(tostring(...))
     end
 
-    print_c("AFTERSHOCK TOOLBOX: " .. ...)
+    print_c("ASSE: " .. ...)
 end)
 
+--> Also replace Error!
 error = function(...)
-    if debugger == true then
+    if rrkit_sdk and debugger == true then
         console.error(tostring(...))
     end
 
-    error_c("AFTERSHOCK TOOLBOX: " .. ...)
+    error_c("ASSE: " .. ...)
 end)
