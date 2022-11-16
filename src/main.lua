@@ -1,19 +1,14 @@
 --> ASSE Data
 getgenv().asse = { data = {}, version = "0.0.1" } --> ASSE Global Table
-asse.data = {
+local Data = asse.data
+Data = {
     MainFolder = "ASSE",
     SoundFolder = MainFolder .. "/Sounds",
     ImageFolder = MainFolder .. "/Images"
 }
-local Data = asse.data
 
 --> Settings
 local debugger = false
-
---> File System
-local MainFolder = "ASSE"
-local SoundFolder = MainFolder .. "/Sounds"
-local ImageFolder = MainFolder .. "/Images"
 
 --> Cloned Functions for reuse
 local clonefunc = clonefunction
@@ -97,12 +92,12 @@ function asse.makefile(fileName, value)
     local success
     local err
     
-    if not isfile(Data.MainFolder .. fileName) then
+    if not pcall(function() isfile(Data.MainFolder .. fileName) end) then
         success, err = pcall_c(function() writefile(Data.MainFolder .. fileName, tostring(value)) end)
     end
     
     if not success and err then
-        asse.error(err)
+        asse.error("'asse.makefolder' " .. err)
     end
 end
 
@@ -110,9 +105,13 @@ function asse.isfile(fileName)
     local success
     local err
     
-    if isfile(Data.MainFolder .. fileName) then
+    if success, err = pcall(function() isfile(Data.MainFolder .. fileName) end) then
         return true
     else
         return false
+    end
+    
+    if not success and err then
+        asse.error("`asse.isfile` " .. err)
     end
 end
