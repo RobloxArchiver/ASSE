@@ -3,9 +3,7 @@
 | Objective | Completed | InProgress |
 | --------- | --------- | ---------- |
 | Formatting | :x: | Yes |
-| Part Renamer | :x: | TBA |
-| ACS Hook | :x: | Yes|
-| BadgeCheck | :x: | No |
+| ACS Hook | :x: | No |
 | Full L1 Support | :x: | No |
 | Full L2 Support | :x: | No |
 
