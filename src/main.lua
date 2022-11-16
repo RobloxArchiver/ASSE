@@ -1,6 +1,14 @@
+--> ASSE Data
+getgenv().asse = { data = {}, version = "0.0.1" } --> ASSE Global Table
+asse.data = {
+    MainFolder = "ASSE",
+    SoundFolder = MainFolder .. "/Sounds",
+    ImageFolder = MainFolder .. "/Images"
+}
+local Data = asse.data
+
 --> Settings
 local debugger = false
-local version = "0.1.0a"
 
 --> File System
 local MainFolder = "ASSE"
@@ -11,6 +19,7 @@ local ImageFolder = MainFolder .. "/Images"
 local clonefunc = clonefunction
 local print_c = clonefunc(print)
 local error_c = clonefunc(error)
+local pcall_c = clonefunc(pcall)
 
 --> Variables
 local Workspace = game.Workspace
@@ -21,9 +30,11 @@ local GetChildren = game.GetChildren
 local FindFirstChildWhichIsA = game.FindFirstChildWhichIsA
 local IsA = game.IsA
 local GetDescendants = game.GetDescendants
+local PlaceId = game.PlaceId
+local Kick = function(s) game.Players.LocalPlayer:Kick(s) end
 
---> Replace print with our own :cool:
-print = function(...)
+--> Print and Error Functions are loaded first before ANYTHING else.
+asse.print = function(...)
     if rrkit_sdk and debugger == true then
         console.print(tostring(...))
     end
@@ -31,8 +42,7 @@ print = function(...)
     print_c("ASSE: " .. ...)
 end
 
---> Also replace Error!
-error = function(...)
+asse.error = function(...)
     if rrkit_sdk and debugger == true then
         console.error(tostring(...))
     end
@@ -40,41 +50,69 @@ error = function(...)
     error_c("ASSE: " .. ...)
 end
 
---> Using the cloned print
-print_c([[
+--[[
 
-      /$$$$$$   /$$$$$$   /$$$$$$  /$$$$$$$$
-     /$$__  $$ /$$__  $$ /$$__  $$| $$_____/
-    | $$  \ $$| $$  \__/| $$  \__/| $$      
-    | $$$$$$$$|  $$$$$$ |  $$$$$$ | $$$$$   
-    | $$__  $$ \____  $$ \____  $$| $$__/   
-    | $$  | $$ /$$  \ $$ /$$  \ $$| $$      
-    | $$  | $$|  $$$$$$/|  $$$$$$/| $$$$$$$$
-    |__/  |__/ \______/  \______/ |________/
+    Checks
 
-        AFTERSHOCK Script Extender
-]])
+]]
 
-if game.PlaceId == 11558029992 then
-    print("Failed to Load")
-    game.Players.LocalPlayer:Kick("Sorry, this is the Multiplayer version.")
+if PlaceId == 11558029992 then
+    asse.print("Failed to Load")
+    Kick("Sorry, this is the Multiplayer version.")
     return
 end
 
-if not game.PlaceId == 11470282325 or not game.PlaceId == 11525845349 then
-    print("Failed to Load")
-    game.Players.LocalPlayer:Kick("Sorry, this game isn't AFTERSHOCK.")
+if PlaceId ~= 11470282325 or PlaceId ~= 11525845349 then
     return
 end
 
-if not isfolder(MainFolder) then
-    makefolder(MainFolder) print("(FileSystem) Creating '" .. MainFolder .. "'")
-else 
-    print("(FileSystem) Found '" .. MainFolder .. "'")
+if not isfolder(Data.MainFolder) then
+    makefolder(Data.MainFolder) 
+    asse.print("(FileSystem) Creating '" .. Data.MainFolder .. "'")
+elseif isfolder(Data.MainFolder) then
+    asse.print("(FileSystem) Found '" .. Data.MainFolder .. "'")
 end
 
-if not isfolder(SoundFolder) then
-    makefolder(SoundFolder) print("(FileSystem) Creating '" .. SoundFolder .. "'")
-else 
-    print("(FileSystem) Found '" .. SoundFolder .. "'")
+if not isfolder(Data.SoundFolder) then
+    makefolder(Data.SoundFolder)
+    asse.print("(FileSystem) Creating '" .. Data.SoundFolder .. "'")
+elseif isfolder(Data.SoundFolder) then
+    asse.print("(FileSystem) Found '" .. Data.SoundFolder .. "'")
+end
+
+if not isfolder(Data.ImageFolder) then
+    makefolder(Data.ImageFolder)
+    asse.print("(FileSystem) Creating '" .. Data.ImageFolder .. "'")
+elseif isfolder(Data.ImageFolder) then
+    asse.print("(FileSystem) Found '" ,, Data.SoundFolder .. "'")
+end
+
+--[[
+
+    Functions
+
+]]
+
+function asse.makefile(fileName, value)
+    local success
+    local err
+    
+    if not isfile(Data.MainFolder .. fileName) then
+        success, err = pcall_c(function() writefile(Data.MainFolder .. fileName, tostring(value)) end)
+    end
+    
+    if not success and err then
+        asse.error(err)
+    end
+end
+
+function asse.isfile(fileName)
+    local success
+    local err
+    
+    if isfile(Data.MainFolder .. fileName) then
+        return true
+    else
+        return false
+    end
 end
