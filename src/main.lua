@@ -1,6 +1,8 @@
 --> ASSE Data
-getgenv().asse = { data = {}, version = "0.0.1" } --> ASSE Global Table
+getgenv().asse = { data = {}, version = "0.0.1", clonefunctions = {} } --> ASSE Global Table
 local Data = asse.data
+local clonefunctions = asse.clonefunctions
+
 Data = {
     MainFolder = "ASSE",
     SoundFolder = MainFolder .. "/Sounds",
@@ -12,9 +14,9 @@ local debugger = false
 
 --> Cloned Functions for reuse
 local clonefunc = clonefunction
-local print_c = clonefunc(print)
-local error_c = clonefunc(error)
-local pcall_c = clonefunc(pcall)
+clonefunctions.print_c = clonefunc(print)
+clonefunctions.error_c = clonefunc(error)
+clonefunctions.pcall_c = clonefunc(pcall)
 
 --> Variables
 local Workspace = game.Workspace
@@ -34,7 +36,7 @@ asse.print = function(...)
         console.print(tostring(...))
     end
 
-    print_c("ASSE: " .. ...)
+    clonefunctions.print_c("ASSE: " .. ...)
 end
 
 asse.error = function(...)
@@ -42,7 +44,7 @@ asse.error = function(...)
         console.error(tostring(...))
     end
 
-    error_c("ASSE: " .. ...)
+    clonefunctions.error_c("ASSE: " .. ...)
 end
 
 --[[
