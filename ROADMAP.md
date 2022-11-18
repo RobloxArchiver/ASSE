@@ -8,7 +8,7 @@
 | Full L1 Support | :x: | No |
 | Full L2 Support | :x: | No |
 | Full L3 Support | :x: | No |
-| CLi | :x: | Yes/No |
+| CLi | :x: | Yes |
 
 
 # Formatting [90% For now]
@@ -32,7 +32,7 @@ Full Support
 # CLi [Command Line Interface]
 Commandline using RRKit for quickcommands.
 
-I have not released RRKit, you can gladly make your own rconsole handler/wrapper.
+~I have not released RRKit, you can gladly make your own rconsole handler/wrapper.~ [Get the latest release here](https://github.com/RobloxArchiver/rrkit_release/releases)
 
 # Documentation
 Writing general documentation of functions and such.
