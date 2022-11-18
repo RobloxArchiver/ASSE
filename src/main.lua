@@ -9,9 +9,6 @@ Data = {
     ImageFolder = MainFolder .. "/Images"
 }
 
---> Settings
-local debugger = false
-
 --> Cloned Functions for reuse
 local clonefunc = clonefunction
 clonefunctions.print_c = clonefunc(print)
@@ -32,18 +29,10 @@ local Kick = function(s) game.Players.LocalPlayer:Kick(s) end
 
 --> Print and Error Functions are loaded first before ANYTHING else.
 asse.print = function(...)
-    if rrkit_sdk and debugger == true then
-        console.print(tostring(...))
-    end
-
     clonefunctions.print_c("ASSE: " .. ...)
 end
 
 asse.error = function(...)
-    if rrkit_sdk and debugger == true then
-        console.error(tostring(...))
-    end
-
     clonefunctions.error_c("ASSE: " .. ...)
 end
 
@@ -60,6 +49,7 @@ if PlaceId == 11558029992 then
 end
 
 if PlaceId ~= 11470282325 or PlaceId ~= 11525845349 then
+    getgenv().asse = nil --> Makes it less invasive (I hope)
     return
 end
 
