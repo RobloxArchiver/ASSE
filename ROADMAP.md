@@ -4,23 +4,35 @@
 | --------- | --------- | ---------- |
 | Formatting | :x: | Yes |
 | ACS Hook | :x: | No |
+| Level Check | :grey_question: | Yes |
 | Full L1 Support | :x: | No |
 | Full L2 Support | :x: | No |
+| Full L3 Support | :x: | No |
+| CLi | :x: | Yes/No |
 
-# Formatting
+
+# Formatting [90% For now]
 Format main script/formatting architecture
 
-# Part Renamer
-Rename parts automatically to simplify editing (Blox didn't name everything :|)
-
 # ACS Hook
-Hook ACS to customize it to your own liking
+Full customization of ACS and modifying certain events.
 
-# BadgeCheck
-Check is the user has certain badges before allowing execution, this won't be implemented until I decide if it's final or not
+# Level Check
+Progress started, not completed 100% yet.
 
 # Full L1 Support
-Full Function Completion
+Full Support
 
 # Full L2 Support
-Full Function Completion
+Full Support
+
+# Full L3 Support
+Full Support
+
+# CLi [Command Line Interface]
+Commandline using RRKit for quickcommands.
+
+I have not released RRKit, you can gladly make your own rconsole handler/wrapper.
+
+# Documentation
+Writing general documentation of functions and such.
