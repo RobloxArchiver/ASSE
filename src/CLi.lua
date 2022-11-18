@@ -1,9 +1,11 @@
-if not rrkit_sdk then
-    loadstring(syn.request({
-        Url = "https://raw.githubusercontent.com/RobloxArchiver/rrkit_release/main/src/main.lua",
-        Method = "GET"
-    }).Body)()
-end
+loadstring(syn.request({
+    Url = "https://raw.githubusercontent.com/RobloxArchiver/rrkit_release/main/src/main.lua",
+    Method = "GET"
+}).Body)()
+
+repeat
+    wait()
+until asse
 
 console.print("Loading...")
 
