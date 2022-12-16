@@ -5,8 +5,8 @@ local clonefunctions = asse.clonefunctions
 
 Data = {
     MainFolder = "ASSE",
-    SoundFolder = MainFolder .. "/Sounds",
-    ImageFolder = MainFolder .. "/Images"
+    SoundFolder = "ASSE/Sounds",
+    ImageFolder = "ASSE/Images"
 }
 
 --> Cloned Functions for reuse
@@ -48,11 +48,6 @@ if PlaceId == 11558029992 then
     return
 end
 
-if PlaceId ~= 11470282325 or PlaceId ~= 11525845349 then
-    getgenv().asse = nil --> Makes it less invasive (I hope)
-    return
-end
-
 if not isfolder(Data.MainFolder) then
     makefolder(Data.MainFolder) 
     asse.print("(FileSystem) Creating '" .. Data.MainFolder .. "'")
@@ -71,7 +66,7 @@ if not isfolder(Data.ImageFolder) then
     makefolder(Data.ImageFolder)
     asse.print("(FileSystem) Creating '" .. Data.ImageFolder .. "'")
 elseif isfolder(Data.ImageFolder) then
-    asse.print("(FileSystem) Found '" ,, Data.SoundFolder .. "'")
+    asse.print("(FileSystem) Found '" .. Data.SoundFolder .. "'")
 end
 
 --[[
@@ -90,20 +85,5 @@ function asse.makefile(fileName, value)
     
     if not success and err then
         asse.error("'asse.makefolder' " .. err)
-    end
-end
-
-function asse.isfile(fileName)
-    local success
-    local err
-    
-    if success, err = pcall(function() isfile(Data.MainFolder .. fileName) end) then
-        return true
-    else
-        return false
-    end
-    
-    if not success and err then
-        asse.error("`asse.isfile` " .. err)
     end
 end
