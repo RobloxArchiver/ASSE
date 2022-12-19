@@ -7,6 +7,15 @@ loadstring(
     ).Body
 )()
 
+loadstring(
+    syn.request(
+        {
+            Url = "https://raw.githubusercontent.com/RobloxArchiver/ASSE/main/src/main.lua",
+            Method = "GET"
+        }
+    ).Body
+)()
+
 repeat
     wait()
 until asse
