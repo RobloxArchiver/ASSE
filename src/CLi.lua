@@ -2,7 +2,7 @@ loadstring(syn.request({ Url = "https://raw.githubusercontent.com/RobloxArchiver
 loadstring(syn.request({ Url = "https://raw.githubusercontent.com/RobloxArchiver/ASSE/main/src/main.lua", Method = "GET" }).Body)()
 
 repeat
-    wait()
+    task.wait()
 until asse
 
 console.print("Loading...")
