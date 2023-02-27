@@ -5,25 +5,18 @@ repeat
     task.wait()
 until asse
 
-console.print("Loading...")
-
-function printc(...)
-    console.print("[ASSE]: " .. ...)
+local function indent(str)
+    return "    " .. str
 end
 
-handler:add("test", function()
-    local oldPos = game.Players.LocalPlayer.HumanoidRootPart.CFrame
+local function getHelp()
+    console.print("Commands")
+    console.print(indent("'?' - Returns this page"))
+    console.print(indent("'help' - Returns this page"))
+end
 
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(9e9, 9e9, 9e9)
-    console.error("Oops!")
-    console.success("Sorry!")
-
-    wait(5)
-
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldPos
-    printc("There we go!")
-    asse.print("Sorry about the CLi, currently nothing to add until other stuff are done. :(")
-end)
+handler:add("help", getHelp)
+handler:add("?", getHelp)
 
 console.clear()
 console.print([[
@@ -37,6 +30,6 @@ console.print([[
 |__/  |__/ \______/  \______/ |________/
 ]] .. "\n\n")
 
-printc("Loaded | Type 'help' or '?' for basic information.")
+console.print("Loaded | Type 'help' or '?' for commands")
 
 handler:request()
